@@ -17,10 +17,10 @@
           </header>
           <nav class="nav-v">
             <ul>
-              <li><a class="selected" href="#">About</a></li>
-              <li><a href="#resume">Resume</a></li>
-              <li><a href="#">Projects</a></li>
-              <li><a href="#">Photography</a></li>
+              <li id='nav-about'><a href="#">About</a></li>
+              <li id='nav-resume'><a href="#resume">Resume</a></li>
+              <li id='nav-projects'><a href="#">Projects</a></li>
+              <li id='nav-photo'><a href="#">Photography</a></li>
             </ul>
           </nav>
         </div>
@@ -57,7 +57,10 @@
   
   <script id="resume-template" type="text/template">
     <div id="resume-wrapper">
-      <h1>Resume!</h1>
+      <% _.each(experience, function(exp) { %>
+        <h3><%- exp.title %></h3>
+      
+      <% }); %>
     </div>
   </script>
 </body>

@@ -1,0 +1,20 @@
+{
+    "experience": [
+        {
+            "employer": "LinkedIn",
+            "duties": [
+                "Worked on Play Framework server backend using Java andScala",
+                "Tookchargeofbootstrappingandmaintainingastartupprojectunderanewframework"
+            ],
+            "title": "Software Engineering Intern"
+        },
+        {
+            "employer": "LinkedIn",
+            "duties": [
+                "Didstuff"
+            ],
+            "title": "Mobile Engineering Intern"
+        }
+    ],
+    "education": {}
+}

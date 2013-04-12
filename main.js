@@ -21,7 +21,11 @@ $(function() {
     template: _.template($('#resume-template').html()),
     
     render: function() {
-      this.$el.html(this.template());
+      var that = this;
+      $.getJSON('data/resume.json', function(data) {
+        console.log(data);
+        that.$el.html(that.template(data));
+      });
       return this;
     }
   });
@@ -30,11 +34,15 @@ $(function() {
     
     el: $('#app'),
     
-/*
     initialize: function() {
-      this.about();
+      this.listenTo(APP.appRouter, 'route', function(route) {
+        if (route === 'about' || route === 'resume') {
+          $('.nav-v a.selected').removeClass('selected');
+          console.log('#nav-' + route);
+          $('#nav-' + route + ' a').addClass('selected');
+        }
+      });
     },
-*/
     
     about: function() {
       var About = new APP.AboutView({el: $content});
@@ -59,15 +67,13 @@ $(function() {
     },
     
     resume: function() {
-      console.log("resume received");
       APP.appView.resume();
     }
     
   });
-  
-  APP.appView = new APP.AppView();
-  
+    
   APP.appRouter = new APP.AppRouter();
+  APP.appView = new APP.AppView();
   
   Backbone.history.start();
 
