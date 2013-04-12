@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>kfang</title>
+  <link rel="stylesheet" href="kube.min.css"/>
+  <link rel="stylesheet" href="main.css"/>
+</head>
+<body>
+  <div id="page">
+    <div id="app">
+      <div class="container row">
+        <div id="nav-wrapper" class="quarter">
+          <header>
+            <h1 id="name"><span id="first-name">kevin</span><br>  fang</h1>
+            <h4 class="subheader">Software journeyman</h1>
+          </header>
+          <nav class="nav-v">
+            <ul>
+              <li><a class="selected" href="#">About</a></li>
+              <li><a href="#resume">Resume</a></li>
+              <li><a href="#">Projects</a></li>
+              <li><a href="#">Photography</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div id="content-wrapper" class="threequarter">
+          <div id="content"></div>
+        </div>
+      </div>
+      <footer id="footer">
+        <nav id="nav-footer" class="nav-h">
+          <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Source</a></li>
+          </ul>
+        </nav>
+      </footer>
+    </div>
+  </div>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="underscore-min.js"></script>
+  <script src="backbone.js"></script>
+  <script src="main.js"></script>
+  
+  <!-- Templates -->
+  <script id="about-template" type="text/template">
+    <div id="about-wrapper">
+      <img class="profile polaroid" src="img/photo.jpg">
+      <h2>Hello,</h2>
+      <p>I'm Kevin.</p>
+      <p>I'm a 4th year computer science student at the University of Waterloo.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non ornare sapien. Vivamus aliquet dui ullamcorper justo cursus dictum. Mauris et nisl eget ante dapibus gravida. Suspendisse.</p>
+    </div>
+  </script>
+  
+  <script id="resume-template" type="text/template">
+    <div id="resume-wrapper">
+      <h1>Resume!</h1>
+    </div>
+  </script>
+</body>
+</html>
