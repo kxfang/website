@@ -40,30 +40,5 @@
       "date": "Jan - Apr 2012"
     }
   ],
-  "education": {},
-  "projects": [
-    {
-      "name" : "KXTileView",
-      "imageUrl" : "img/kxtileview.png",
-      "description" : "A open-source library for creating tiled views with built-in animations for iPad",
-      "url": "https://github.com/kxfang/KXTileView",
-      "urlDesc" : "GitHub Link",
-      "videoId" : "63678180",
-      "videoUrl" : "https://vimeo.com/63678180"
-    },
-    {
-      "name" : "LinkedIn iPhone Calendar",
-      "imageUrl" : "img/iphone-cal.png",
-      "description" : "I built the entire client-side implementation of LinkedIn's iPhone calendar",
-      "url" : "https://itunes.apple.com/us/app/linkedin/id288429040?mt=8",
-      "urlDesc" : "App Store Link"
-    },
-    {
-      "name" : "Hacker News 7",
-      "imageUrl" : "http://cdn.marketplaceimages.windowsphone.com/v8/images/811ff345-8c1f-4770-b8e0-394e1504fcba?imageType=ws_icon_large",
-      "description" : "A simple mobile client for browsing the YCombinator site Hacker News. The project is no longer maintained since I do not have access to my Windows dev machine anymore.",
-      "url": "http://www.windowsphone.com/en-us/store/app/hacker-news-7/34046749-a121-421c-ba26-4d357b67baf1",
-      "urlDesc" : "Windows Marketplace Link"
-    }
-  ]
+  "education": {}
 }
