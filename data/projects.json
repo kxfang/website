@@ -1,53 +1,11 @@
 {
-  "overview": "I specialize in mobile projects and have a lot of experience working in Java and Objective-C. I'm also comfortable working anywhere else on the stack",
-  "technologies": [
-    "Java",
-    "Objective-C",
-    "Python",
-    "Scala",
-    "iOS/Cocoa",
-    "Android",
-    "Play",
-    "Javascript"
-  ],
-  "experience": [
-    {   
-      "employer": "Twitter", 
-      "duties": [
-          "Working on Twitter trends team"
-      ],
-      "title": "Software Engineering Intern",
-      "logo": "img/twitter.png",
-      "date": "May 2013 - Present"
-    },
-    {
-      "employer": "LinkedIn",
-      "duties": [
-          "Worked on Play Framework server backend using Java andScala",
-          "Tookchargeofbootstrappingandmaintainingastartupprojectunderanewframework"
-      ],
-      "title": "Software Engineering Intern",
-      "logo": "img/linkedin.png",
-      "date": "Sept - Dec 2012"
-    },
-    {
-      "employer": "LinkedIn",
-      "duties": [
-          "Didstuff"
-      ],
-      "title": "Mobile Engineering Intern",
-      "logo": "img/linkedin.png",
-      "date": "Jan - Apr 2012"
-    }
-  ],
-  "education": {},
   "projects": [
     {
       "name" : "KXTileView",
       "imageUrl" : "img/kxtileview.png",
       "description" : "A open-source library for creating tiled views with built-in animations for iPad",
       "url": "https://github.com/kxfang/KXTileView",
-      "urlDesc" : "GitHub Link",
+      "urlDesc" : "GitHub",
       "videoId" : "63678180",
       "videoUrl" : "https://vimeo.com/63678180"
     },

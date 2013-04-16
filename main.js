@@ -30,13 +30,37 @@ $(function() {
     }
   });
   
+  APP.ProjectsView = Backbone.View.extend({
+    
+    template: _.template($('#projects-template').html()),
+    
+    events: {
+      'click .view-demo' : 'viewDemo'
+    },
+    
+    render: function() {
+      console.log("rendering projects");
+      var that = this;
+      $.getJSON('data/projects.json', function(data) {
+        console.log(data);
+        that.$el.html(that.template(data));
+      });
+    },
+    
+          
+    viewDemo : function () {
+      console.log('click');
+      this.$el.find('.demo').slideToggle();
+    }
+  });
+  
   APP.AppView = Backbone.View.extend({
     
     el: $('#app'),
     
     initialize: function() {
       this.listenTo(APP.appRouter, 'route', function(route) {
-        if (route === 'about' || route === 'resume') {
+        if (route === 'about' || route === 'resume' || route == 'projects') {
           $('.nav-v a.selected').removeClass('selected');
           console.log('#nav-' + route);
           $('#nav-' + route + ' a').addClass('selected');
@@ -52,14 +76,20 @@ $(function() {
     resume: function() {
       var Resume = new APP.ResumeView({el: $content});
       Resume.render();
+    },
+    
+    projects: function() {
+      var Projects = new APP.ProjectsView({el: $content});
+      Projects.render();
     }
   });
     
   APP.AppRouter = Backbone.Router.extend({
     
     routes: {
-      ''       : 'about',
-      'resume' : 'resume'
+      ''         : 'about',
+      'resume'   : 'resume',
+      'projects' : 'projects', 
     },
     
     about: function() {
@@ -68,6 +98,10 @@ $(function() {
     
     resume: function() {
       APP.appView.resume();
+    },
+    
+    projects: function() {
+      APP.appView.projects();
     }
     
   });

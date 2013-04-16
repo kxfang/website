@@ -42,6 +42,17 @@ body {
   font-size: 0.9em;
 }
 
+@media (min-width: 768px) {
+  .nav-fixed {
+    position: fixed;
+    max-width: 210px;
+  } 
+  #content-wrapper {
+    margin-left: 250px;
+  }
+}
+
+
 /* About page */
 
 #about-wrapper {
@@ -59,4 +70,53 @@ img.profile {
 #footer {
   border-top: 1px solid #eee;
   margin-top: 50px;
+}
+
+/* Resume page */
+li.circle {
+  list-style: none;
+  line-height: 160%;
+}
+
+.employer-img {
+  max-height: 1.4em;
+  position: relative;
+  top: 5px;
+  left: 10px;
+}
+
+.emp-img-span {
+  position: relative;
+  left: 10px;
+}
+
+.employer-header {
+  display: block;
+}
+
+.employer-date {
+  text-align: right;
+}
+
+.employer-title {
+}
+
+#page li, #page p {
+  font-size: 115%;
+  color: #5c5c5c;
+}
+
+#resume-wrapper ul {
+  margin-left: 0;
+}
+
+/* Projects */
+.project-img {
+  max-width: 200px;
+}
+
+.demo {
+  width: 400px;
+  height: 200px;
+  display: none;
 }

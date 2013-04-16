@@ -10,16 +10,16 @@
   <div id="page">
     <div id="app">
       <div class="container row">
-        <div id="nav-wrapper" class="quarter">
+        <div id="nav-wrapper" class="quarter nav-fixed">
           <header>
             <h1 id="name"><span id="first-name">kevin</span><br>  fang</h1>
-            <h4 class="subheader">Software journeyman</h1>
+            <h2 class="subheader">Software journeyman</h1>
           </header>
           <nav class="nav-v">
             <ul>
               <li id='nav-about'><a href="#">About</a></li>
               <li id='nav-resume'><a href="#resume">Resume</a></li>
-              <li id='nav-projects'><a href="#">Projects</a></li>
+              <li id='nav-projects'><a href="#projects">Projects</a></li>
               <li id='nav-photo'><a href="#">Photography</a></li>
             </ul>
           </nav>
@@ -39,7 +39,8 @@
     </div>
   </div>
   
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+  <script src="jquery.min.js"></script>
   <script src="underscore-min.js"></script>
   <script src="backbone.js"></script>
   <script src="main.js"></script>
@@ -57,9 +58,53 @@
   
   <script id="resume-template" type="text/template">
     <div id="resume-wrapper">
-      <% _.each(experience, function(exp) { %>
-        <h3><%- exp.title %></h3>
-      
+      <p><%- overview %></p>
+      <h2>Technologies</h2>
+      <div id="technologies-wrapper" class="container">
+        <% for (var i = 0; i < technologies.length; i+= 2) { %>
+              <ul class="quarter">
+                <li class="circle"><%- technologies[i] %></li>
+                <% if (i+1 < technologies.length) { %>
+                  <li class="circle"><%- technologies[i+1] %></li>
+                <% } %>
+              </ul>
+        <% } %>
+      </div>
+      <h2>Experience</h2>
+      <div id="experience-wrapper" class="row">
+        <% _.each(experience, function(exp) { %>
+          <h3 class="employer"><%- exp.employer %><span class="emp-img-span">|<img class="employer-img" src="<%- exp.logo %>"></span></h3>
+          <div class="employer-header container">
+            <h3 class="employer-title subheader threequarter"><%- exp.title %></h4>
+            <h3 class="employer-date subheader quarter"><%- exp.date %></h3>
+          </div>
+
+          <ul>
+            <% _.each(exp.duties, function(duty) {%>
+              <li class="circle"><%- duty %></li>
+            <% }); %>
+          </ul>
+        <% }); %>
+      </div>
+    </div>
+  </script>
+  
+  <script id="projects-template" type="text/template">
+    <div id="projects-wrapper">
+      <% _.each(projects, function(project) { %>
+        <div class="project row">
+          <div class="twothird">
+            <h3 class="project-name"><%- project.name %></h3>
+            <p><%- project.description %></p>
+            <a href="<%- project.url %>"><%- project.urlDesc %></a>
+            <% if (project.videoId) { %>
+              <a href="<%- project.videoUrl %>">View Demo</a>
+            <% } %>
+          </div>
+          <div class="third">
+            <img class="project-img" src="<%- project.imageUrl %>">
+          </div>
+        </div>
       <% }); %>
     </div>
   </script>
