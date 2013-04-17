@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>kfang</title>
-  <link rel="stylesheet" href="kube.min.css"/>
-  <link rel="stylesheet" href="main.css"/>
+  <link rel="stylesheet" href="lib/css/kube.min.css"/>
+  <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
   <div id="page">
@@ -20,7 +20,7 @@
               <li id='nav-about'><a href="#">About</a></li>
               <li id='nav-resume'><a href="#resume">Resume</a></li>
               <li id='nav-projects'><a href="#projects">Projects</a></li>
-              <li id='nav-photo'><a href="#">Photography</a></li>
+              <li id='nav-photography'><a href="#photography">Photography</a></li>
             </ul>
           </nav>
         </div>
@@ -40,10 +40,10 @@
   </div>
   
   <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
-  <script src="jquery.min.js"></script>
-  <script src="underscore-min.js"></script>
-  <script src="backbone.js"></script>
-  <script src="main.js"></script>
+  <script src="lib/js/jquery.min.js"></script>
+  <script src="lib/js/underscore-min.js"></script>
+  <script src="lib/js/backbone.js"></script>
+  <script src="js/main.js"></script>
   
   <!-- Templates -->
   <script id="about-template" type="text/template">
@@ -96,15 +96,6 @@
           <div class="twothird">
             <h3 class="project-name"><%- project.name %></h3>
             <p><%- project.description %></p>
-            
-<!--
-            <ul>
-              <lh>Built using:</lh>
-              <% _.each(project.tools, function(tool) { %>
-                <li><%- tool %></li>
-              <% }); %>
-            </ul>
--->
             <p>
               <a href="<%- project.url %>"><%- project.urlDesc %></a>
               <% if (project.videoId) { %>
@@ -120,6 +111,14 @@
           </div>
         </div>
       <% }); %>
+    </div>
+  </script>
+  
+  <script id="photography-template" type="text/template">
+    <div id="photography-wrapper">
+      <div id="photography-content">
+        <img class="photography">
+      </div>
     </div>
   </script>
 </body>

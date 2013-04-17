@@ -39,14 +39,12 @@ $(function() {
     },
     
     render: function() {
-      console.log("rendering projects");
       var that = this;
       $.getJSON('data/projects.json', function(data) {
         console.log(data);
         that.$el.html(that.template(data));
       });
     },
-    
           
     viewDemo : function () {
       console.log('click');
@@ -54,13 +52,44 @@ $(function() {
     }
   });
   
+  APP.PhotographyView = Backbone.View.extend({
+    
+    template: _.template($('#photography-template').html()),
+    
+    photos: ['birds.jpg', 'sunset.jpg'],
+    
+    photoUrl: 'photography/',
+    
+    render: function() {
+      this.$el.html(this.template());  
+      $('#page').animate({'max-width': '1800px'}, 'slow', function() {
+        $('#photography-content').fadeToggle();
+      });
+      $('footer').css({'display': 'none'});
+    }
+    
+  });
+  
   APP.AppView = Backbone.View.extend({
     
     el: $('#app'),
+        
+    restorePage: function(complete) {
+      if ($('#page').css('max-width') !== '800px') {
+        $('#page').animate({'max-width': '800px'}, 'slow', function() {
+          $('footer').css({'display' : 'block'});
+          complete();
+        });
+        $('#photography-content').animate({'opacity': 0});
+      }
+      else if (complete) {
+        complete();
+      }
+    },
     
     initialize: function() {
       this.listenTo(APP.appRouter, 'route', function(route) {
-        if (route === 'about' || route === 'resume' || route == 'projects') {
+        if (route === 'about' || route === 'resume' || route === 'projects' || route === 'photography') {
           $('.nav-v a.selected').removeClass('selected');
           console.log('#nav-' + route);
           $('#nav-' + route + ' a').addClass('selected');
@@ -70,26 +99,38 @@ $(function() {
     
     about: function() {
       var About = new APP.AboutView({el: $content});
-      About.render();
+      this.restorePage(function() {
+        About.render();
+      });
     },
     
     resume: function() {
       var Resume = new APP.ResumeView({el: $content});
-      Resume.render();
+      this.restorePage(function() {
+        Resume.render();
+      });
     },
     
     projects: function() {
       var Projects = new APP.ProjectsView({el: $content});
-      Projects.render();
+      this.restorePage(function() {
+        Projects.render();
+      });
+    },
+    
+    photography: function() {
+      var Photography = new APP.PhotographyView({el: $content});
+      Photography.render();
     }
   });
     
   APP.AppRouter = Backbone.Router.extend({
     
     routes: {
-      ''         : 'about',
-      'resume'   : 'resume',
-      'projects' : 'projects', 
+      ''            : 'about',
+      'resume'      : 'resume',
+      'projects'    : 'projects',
+      'photography' : 'photography' 
     },
     
     about: function() {
@@ -102,6 +143,10 @@ $(function() {
     
     projects: function() {
       APP.appView.projects();
+    },
+    
+    photography: function() {
+      APP.appView.photography();
     }
     
   });
