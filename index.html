@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <title>kfang</title>
   <link rel="stylesheet" href="lib/css/kube.min.css"/>
+  <link rel="stylesheet" href="lib/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
   <div id="page">
     <div id="app">
       <div class="container row">
-        <div id="nav-wrapper" class="quarter nav-fixed">
+        <div id="nav-wrapper" class="fifth nav-fixed">
           <header>
             <h1 id="name"><span id="first-name">kevin</span><br>  fang</h1>
             <h2 class="subheader">Software journeyman</h1>
@@ -24,7 +25,7 @@
             </ul>
           </nav>
         </div>
-        <div id="content-wrapper" class="threequarter">
+        <div id="content-wrapper" class="fourfifth">
           <div id="content"></div>
           <footer id="footer">
             <nav id="nav-footer" class="nav-h">
@@ -43,6 +44,7 @@
   <script src="lib/js/jquery.min.js"></script>
   <script src="lib/js/underscore-min.js"></script>
   <script src="lib/js/backbone.js"></script>
+  <script src="lib/js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
   
   <!-- Templates -->
@@ -117,7 +119,21 @@
   <script id="photography-template" type="text/template">
     <div id="photography-wrapper">
       <div id="photography-content">
-        <img class="photography">
+        <div id="photo" class="carousel slide">
+          <!-- Carousel items -->
+          <div class="carousel-inner">
+            <% _.each(photoUrls, function(url) { %>
+              <div class="item">
+                <div class="photo-wrapper"><img class="photo-item" src="<%- url %>">
+                </div>
+              </div>
+            <% }); %>
+
+          </div>
+          <!-- Carousel nav -->
+          <a class="carousel-control left" href="#photo" data-slide="prev">&lsaquo;</a>
+          <a class="carousel-control right" href="#photo" data-slide="next">&rsaquo;</a>
+        </div>
       </div>
     </div>
   </script>

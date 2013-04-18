@@ -56,14 +56,14 @@ $(function() {
     
     template: _.template($('#photography-template').html()),
     
-    photos: ['birds.jpg', 'sunset.jpg'],
-    
-    photoUrl: 'photography/',
-    
+    photos: ['photography/birds.jpg', 'photography/sunset.jpg'],
+        
     render: function() {
-      this.$el.html(this.template());  
+      this.$el.html(this.template({"photoUrls": this.photos}));  
+      $('.carousel-inner > .item:first-child').addClass('active');
       $('#page').animate({'max-width': '1800px'}, 'slow', function() {
-        $('#photography-content').fadeToggle();
+        $('#photography-content').fadeToggle('fast');
+        $('.carousel').carousel();
       });
       $('footer').css({'display': 'none'});
     }

@@ -23,6 +23,10 @@ body {
   margin-bottom: 25px;
 }
 
+#nav-wrapper {
+  background-color:#f9f9f9;
+}
+
 .nav-v ul li a, .nav-h ul li a {
   color: #8c8c8c;
 }
@@ -46,10 +50,10 @@ body {
 @media (min-width: 768px) {
   .nav-fixed {
     position: fixed;
-    max-width: 210px;
+    max-width: 170px;
   } 
   #content-wrapper {
-    margin-left: 250px;
+    margin-left: 210px;
   }
 }
 
@@ -129,9 +133,48 @@ li.circle {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 250px;
+    left: 200px;
     right: 0;
     background-color: black;
+  }
+  
+  #photo {
+    height: 100%;  
+  }
+  
+  .carousel-inner {
+    height: 100%;
+  }
+  
+  .carousel-inner > .item {
+    height: 100%;
+  }
+  
+  .carousel-control {
+    top: 50%;
+    opacity: 0.1;
+    width: 0.57em;
+    height: 0.57em;
+  }
+  
+  .carousel-control:hover {
+    opacity: 0.5;
+  }
+  
+  .photo-wrapper {
+    height: 100%;
+  }
+  
+  .photo-wrapper:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+  
+  .photo-wrapper > .photo-item {
+    display: inline-block;
+    vertical-align: middle;
   }
 }
 
