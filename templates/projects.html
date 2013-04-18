@@ -1,0 +1,22 @@
+<div id="projects-wrapper">
+  <% _.each(projects, function(project) { %>
+    <div class="project row">
+      <div class="twothird">
+        <h3 class="project-name"><%- project.name %></h3>
+        <p><%- project.description %></p>
+        <p>
+          <a href="<%- project.url %>"><%- project.urlDesc %></a>
+          <% if (project.videoId) { %>
+            <a href="<%- project.videoUrl %>">View Demo</a>
+          <% } %>
+        </p>
+        <% if (project.notMaintained) { %>
+          <p>Unfortunately the project is no longer maintained.<br><a href="<%- project.url2 %>">Here's why.</a></p>
+        <% } %>
+      </div>
+      <div class="third">
+        <img class="project-img" src="<%- project.imageUrl %>">
+      </div>
+    </div>
+  <% }); %>
+</div>

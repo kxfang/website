@@ -1,0 +1,19 @@
+<div id="photography-wrapper">
+  <div id="photography-content">
+    <div id="photo" class="carousel slide">
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        <% _.each(photoUrls, function(url) { %>
+          <div class="item">
+            <div class="photo-wrapper"><img class="photo-item" data-lazy-src="<%- url %>">
+            </div>
+          </div>
+        <% }); %>
+
+      </div>
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#photo" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#photo" data-slide="next">&rsaquo;</a>
+    </div>
+  </div>
+</div>

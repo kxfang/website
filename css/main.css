@@ -163,6 +163,7 @@ li.circle {
   
   .photo-wrapper {
     height: 100%;
+    text-align: center;
   }
   
   .photo-wrapper:before {
@@ -175,6 +176,9 @@ li.circle {
   .photo-wrapper > .photo-item {
     display: inline-block;
     vertical-align: middle;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 auto;
   }
 }
 

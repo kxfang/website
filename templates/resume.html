@@ -1,0 +1,29 @@
+<div id="resume-wrapper">
+  <p><%- overview %></p>
+  <h2>Technologies</h2>
+  <div id="technologies-wrapper" class="container">
+    <% for (var i = 0; i < technologies.length; i+= 2) { %>
+          <ul class="quarter">
+            <li class="circle"><%- technologies[i] %></li>
+            <% if (i+1 < technologies.length) { %>
+              <li class="circle"><%- technologies[i+1] %></li>
+            <% } %>
+          </ul>
+    <% } %>
+  </div>
+  <h2>Experience</h2>
+  <div id="experience-wrapper" class="row">
+    <% _.each(experience, function(exp) { %>
+      <h3 class="employer"><%- exp.employer %><span class="emp-img-span">|<img class="employer-img" src="<%- exp.logo %>"></span></h3>
+      <div class="employer-header container">
+        <h3 class="employer-title subheader threequarter"><%- exp.title %></h4>
+        <h3 class="employer-date subheader quarter"><%- exp.date %></h3>
+      </div>
+      <ul>
+        <% _.each(exp.duties, function(duty) {%>
+          <li class="circle"><%- duty %></li>
+        <% }); %>
+      </ul>
+    <% }); %>
+  </div>
+</div>

@@ -4,27 +4,50 @@ var APP = {};
 
 $(function() {
 
+  APP.ResumeModel = Backbone.Model.extend({
+    urlRoot: 'data/resume.json'
+  });
+  
+  APP.ProjectsModel = Backbone.Model.extend({
+    urlRoot: 'data/projects.json'
+  });
+
   var $content = $('#content');
+  
+  APP.fetchTemplate = function(template, complete) {
+    $.get(template, function(data) {
+      complete(_.template(data));
+    });
+  };
 
   APP.AboutView = Backbone.View.extend({
     
-    template: _.template($('#about-template').html()),
+    template: 'templates/about.html',
     
     render: function() {
-      this.$el.html(this.template());
+      var that = this;
+      APP.fetchTemplate(this.template, function(t){
+        that.$el.html(t());
+      });
       return this;
     }
   });
   
   APP.ResumeView = Backbone.View.extend({
     
-    template: _.template($('#resume-template').html()),
+    template: 'templates/resume.html',
     
+    initialize: function() {
+      this.listenTo(this.model, 'change', this.render);
+      this.model.fetch();
+    },
+        
     render: function() {
       var that = this;
-      $.getJSON('data/resume.json', function(data) {
-        console.log(data);
-        that.$el.html(that.template(data));
+      APP.fetchTemplate(this.template, function(t) {
+        if (that.model.attributes.overview) {          
+          that.$el.html(t(that.model.attributes));
+        }
       });
       return this;
     }
@@ -32,40 +55,75 @@ $(function() {
   
   APP.ProjectsView = Backbone.View.extend({
     
-    template: _.template($('#projects-template').html()),
+    template: 'templates/projects.html',
     
-    events: {
-      'click .view-demo' : 'viewDemo'
+    initialize: function() {
+      this.listenTo(this.model, 'change', this.render);
+      this.model.fetch();
     },
     
     render: function() {
       var that = this;
-      $.getJSON('data/projects.json', function(data) {
-        console.log(data);
-        that.$el.html(that.template(data));
+      APP.fetchTemplate(this.template, function(t) {
+        if (that.model.attributes.projects) {
+          that.$el.html(t(that.model.attributes));
+        }
       });
-    },
-          
-    viewDemo : function () {
-      console.log('click');
-      this.$el.find('.demo').slideToggle();
+      return this;
     }
   });
   
   APP.PhotographyView = Backbone.View.extend({
     
-    template: _.template($('#photography-template').html()),
+    template: 'templates/photography.html',
     
     photos: ['photography/birds.jpg', 'photography/sunset.jpg'],
+    
+    loadPhoto: function(index) {
+      var img = $('.photo-wrapper img:eq(' + (index % this.photos.length) + ')');
+      if (!img.attr('src')) {
+        img.attr('src', img.data('lazySrc'));
+      }
+    },
         
+    events: {
+      'click .carousel-control.left': 'loadLeft',
+      'click .carousel-control.right': 'loadRight'
+    },
+    
+    loadLeft: function() {
+      var cur = $('.carousel-inner .item.active').index('.carousel-inner .item');
+      this.loadPhoto(cur-1);
+    },
+    
+    loadRight: function() {
+      var cur = $('.carousel-inner .item.active').index('.carousel-inner .item');
+      this.loadPhoto(cur+1);
+    },
+            
     render: function() {
-      this.$el.html(this.template({"photoUrls": this.photos}));  
-      $('.carousel-inner > .item:first-child').addClass('active');
-      $('#page').animate({'max-width': '1800px'}, 'slow', function() {
-        $('#photography-content').fadeToggle('fast');
-        $('.carousel').carousel();
+      var that = this;
+      APP.fetchTemplate(this.template, function(t) {
+        $.get('data/photos.json', function(data) {
+          that.photos = data.photos;
+          that.$el.html(t({"photoUrls": that.photos}));  
+          $('#photo').bind('slid', function() {
+            console.log('Slid!');
+            that.loadLeft();
+            that.loadRight();
+          });
+          $('.carousel-inner > .item:first-child').addClass('active');
+          that.loadPhoto(0);
+          that.loadPhoto(-1);
+          that.loadPhoto(1);
+          $('#page').animate({'max-width': '1800px'}, 'slow', function() {
+            $('#photography-content').fadeToggle('slow');
+            $('.carousel').carousel();
+          });
+          $('footer').css({'display': 'none'});
+        });
       });
-      $('footer').css({'display': 'none'});
+      return this;
     }
     
   });
@@ -105,14 +163,20 @@ $(function() {
     },
     
     resume: function() {
-      var Resume = new APP.ResumeView({el: $content});
+      var Resume = new APP.ResumeView({
+                                        el: $content,
+                                        model: new APP.ResumeModel()
+                                      });
       this.restorePage(function() {
         Resume.render();
       });
     },
     
     projects: function() {
-      var Projects = new APP.ProjectsView({el: $content});
+      var Projects = new APP.ProjectsView({
+                                            el: $content,
+                                            model: new APP.ProjectsModel()
+                                          });
       this.restorePage(function() {
         Projects.render();
       });
