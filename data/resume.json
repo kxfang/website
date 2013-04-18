@@ -24,7 +24,7 @@
       "employer": "LinkedIn",
       "duties": [
           "Worked on Play Framework server backend using Java andScala",
-          "Tookchargeofbootstrappingandmaintainingastartupprojectunderanewframework"
+          "Took charge of bootstrapping and supporting a start-up project under new framework"
       ],
       "title": "Software Engineering Intern",
       "logo": "img/linkedin.png",
@@ -33,12 +33,18 @@
     {
       "employer": "LinkedIn",
       "duties": [
-          "Didstuff"
+          "Developed major client-side features for release including iPhone Calendar integration and Address Book Import"
       ],
       "title": "Mobile Engineering Intern",
       "logo": "img/linkedin.png",
       "date": "Jan - Apr 2012"
     }
   ],
-  "education": {}
+  "education": {
+    "school": "University of Waterloo",
+    "notes": [
+      "I studied accounting for the first 2 years there and later switched to computer science",
+      "Expecting to graduate in August 2014"
+    ]
+  }
 }

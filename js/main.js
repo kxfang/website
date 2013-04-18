@@ -38,11 +38,11 @@ $(function() {
     template: 'templates/resume.html',
     
     initialize: function() {
-      this.listenTo(this.model, 'change', this.render);
       this.model.fetch();
     },
         
     render: function() {
+      this.listenTo(this.model, 'change', this.render);
       var that = this;
       APP.fetchTemplate(this.template, function(t) {
         if (that.model.attributes.overview) {          
@@ -58,11 +58,12 @@ $(function() {
     template: 'templates/projects.html',
     
     initialize: function() {
-      this.listenTo(this.model, 'change', this.render);
       this.model.fetch();
     },
     
     render: function() {
+      this.listenTo(this.model, 'change', this.render);
+      console.log('rendering!');
       var that = this;
       APP.fetchTemplate(this.template, function(t) {
         if (that.model.attributes.projects) {
@@ -134,6 +135,7 @@ $(function() {
         
     restorePage: function(complete) {
       if ($('#page').css('max-width') !== '800px') {
+      console.log('animating!');
         $('#page').animate({'max-width': '800px'}, 'slow', function() {
           $('footer').css({'display' : 'block'});
           complete();
@@ -178,6 +180,7 @@ $(function() {
                                             model: new APP.ProjectsModel()
                                           });
       this.restorePage(function() {
+        console.log('complete!');
         Projects.render();
       });
     },

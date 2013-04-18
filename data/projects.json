@@ -17,7 +17,7 @@
     },
     {
       "name" : "LinkedIn iPhone Calendar",
-      "imageUrl" : "img/iphone-cal-2.png",
+      "imageUrl" : "img/iphone-cal.png",
       "description" : "I built the entire client-side implementation of LinkedIn's iPhone calendar. Featured on the LinkedIn app home screen, the calendar allows the user to gather pre-meeting intelligence on who they will be meeting with throughout the day. Notable features include two-way infinite scrolling and dynamic table cell layouts.",
       "tools" : [
         "Objective-C",

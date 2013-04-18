@@ -4,9 +4,9 @@
   <div id="technologies-wrapper" class="container">
     <% for (var i = 0; i < technologies.length; i+= 2) { %>
           <ul class="quarter">
-            <li class="circle"><%- technologies[i] %></li>
+            <li class="resume-note"><%- technologies[i] %></li>
             <% if (i+1 < technologies.length) { %>
-              <li class="circle"><%- technologies[i+1] %></li>
+              <li class="resume-note"><%- technologies[i+1] %></li>
             <% } %>
           </ul>
     <% } %>
@@ -21,9 +21,18 @@
       </div>
       <ul>
         <% _.each(exp.duties, function(duty) {%>
-          <li class="circle"><%- duty %></li>
+          <li class="resume-note"><%- duty %></li>
         <% }); %>
       </ul>
+    <% }); %>
+  </div>
+  <h2>Education</h2>
+  <div id="education-wrapper">
+    <h3><%- education.school %></h3>
+    <% _.each(education.notes, function(note) { %>
+      <ul>
+        <li class="resume-note"><%- note %></li>
+      </ul> 
     <% }); %>
   </div>
 </div>

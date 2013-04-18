@@ -6,7 +6,7 @@ body {
   width: 97%;
   max-width: 800px;
   margin: 0 auto;
-  padding: 50px 0;
+  padding: 50px 5px;
 }
 
 #content-wrapper {
@@ -47,16 +47,15 @@ body {
   font-size: 0.9em;
 }
 
-@media (min-width: 768px) {
-  .nav-fixed {
+@media (min-device-width: 769px) and (min-width: 769px) {
+  #nav-float {
     position: fixed;
-    max-width: 170px;
+/*     max-width: 170px; */
   } 
   #content-wrapper {
-    margin-left: 210px;
+/*     margin-left: 170px; */
   }
 }
-
 
 /* About page */
 
@@ -78,7 +77,7 @@ img.profile {
 }
 
 /* Resume page */
-li.circle {
+li.resume-note {
   list-style: none;
   line-height: 160%;
 }
@@ -101,9 +100,6 @@ li.circle {
 
 .employer-date {
   text-align: right;
-}
-
-.employer-title {
 }
 
 #page li, #page p {
@@ -150,17 +146,6 @@ li.circle {
     height: 100%;
   }
   
-  .carousel-control {
-    top: 50%;
-    opacity: 0.1;
-    width: 0.57em;
-    height: 0.57em;
-  }
-  
-  .carousel-control:hover {
-    opacity: 0.5;
-  }
-  
   .photo-wrapper {
     height: 100%;
     text-align: center;
@@ -180,6 +165,18 @@ li.circle {
     max-width: 100%;
     margin: 0 auto;
   }
+}
+
+.carousel-control {
+  top: 50%;
+  opacity: 0.3;
+  text-decoration: none;
+  border: 0;
+  background-color: #3c3c3c;
+}
+
+.carousel-control:hover {
+  opacity: 0.5;
 }
 
 #photography-content {
