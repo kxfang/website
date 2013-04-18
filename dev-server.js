@@ -5,6 +5,9 @@ var fs = require('fs');
 http.createServer(function(req, resp) {
   pathname = url.parse(req.url).pathname;
   console.log(pathname);
+  if (pathname === '/') {
+    pathname = '/index.html';
+  }
   var file = pathname.substring(1, pathname.length);
   
   var type = file.split('.').pop();
