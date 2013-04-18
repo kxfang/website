@@ -10,7 +10,7 @@ body {
 }
 
 #content-wrapper {
-  padding-top: 20px;
+  padding-top: 5px;
 }
 
 #first-name {
@@ -50,11 +50,7 @@ body {
 @media (min-device-width: 769px) and (min-width: 769px) {
   #nav-float {
     position: fixed;
-/*     max-width: 170px; */
   } 
-  #content-wrapper {
-/*     margin-left: 170px; */
-  }
 }
 
 /* About page */
