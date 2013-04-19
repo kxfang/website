@@ -18,6 +18,7 @@
     {
       "name" : "LinkedIn iPhone Calendar",
       "imageUrl" : "img/iphone-cal.png",
+      "fullImageUrl" : "img/iphone-cal-full.png",
       "description" : "I built the entire client-side implementation of LinkedIn's iPhone calendar. Featured on the LinkedIn app home screen, the calendar allows the user to gather pre-meeting intelligence on who they will be meeting with throughout the day. Notable features include two-way infinite scrolling and dynamic table cell layouts.",
       "tools" : [
         "Objective-C",
@@ -31,6 +32,7 @@
     {
       "name" : "Hacker News 7",
       "imageUrl" : "img/hn7.png",
+      "fullImageUrl" : "img/hn7-full.png",
       "description" : "A simple mobile client for browsing the YCombinator site Hacker News. The app features a polished UI and dark and light themes. Unfortunately project is no longer maintained.",
       "url": "http://www.windowsphone.com/en-us/store/app/hacker-news-7/34046749-a121-421c-ba26-4d357b67baf1",
       "urlDesc" : "Windows Marketplace Link",

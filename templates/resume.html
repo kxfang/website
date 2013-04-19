@@ -1,6 +1,6 @@
 <div id="resume-wrapper">
   <p><%- overview %></p>
-  <h2>Technologies</h2>
+  <h1>Technologies</h1>
   <div id="technologies-wrapper" class="container">
     <% for (var i = 0; i < technologies.length; i+= 2) { %>
           <ul class="quarter">
@@ -11,7 +11,7 @@
           </ul>
     <% } %>
   </div>
-  <h2>Experience</h2>
+  <h1>Experience</h1>
   <div id="experience-wrapper" class="row">
     <% _.each(experience, function(exp) { %>
       <h3 class="employer"><%- exp.employer %><span class="emp-img-span">|<img class="employer-img" src="<%- exp.logo %>"></span></h3>
@@ -26,7 +26,7 @@
       </ul>
     <% }); %>
   </div>
-  <h2>Education</h2>
+  <h1>Education</h1>
   <div id="education-wrapper">
     <h3><%- education.school %></h3>
     <ul>

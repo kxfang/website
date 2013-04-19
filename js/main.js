@@ -59,6 +59,19 @@ $(function() {
     
     initialize: function() {
       this.model.fetch();
+      
+      $('.demo').fancybox({
+    	  width : 757,
+    	  height : 480,
+    		openEffect	: 'fade',
+    		closeEffect	: 'fade',
+    		aspectRatio : true,
+    		closeBtn : true
+    	});
+    	
+    	$('#projects-wrapper .zoom').fancybox({
+    		closeBtn : true
+    	});
     },
     
     render: function() {
