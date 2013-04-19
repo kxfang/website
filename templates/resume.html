@@ -3,16 +3,16 @@
   <h1>Technologies</h1>
   <div id="technologies-wrapper" class="container">
     <% for (var i = 0; i < technologies.length; i+= 2) { %>
-          <ul class="quarter">
-            <li class="resume-note"><%- technologies[i] %></li>
-            <% if (i+1 < technologies.length) { %>
-              <li class="resume-note"><%- technologies[i+1] %></li>
-            <% } %>
-          </ul>
+      <ul class="quarter">
+        <li class="resume-note"><%- technologies[i] %></li>
+        <% if (i+1 < technologies.length) { %>
+          <li class="resume-note"><%- technologies[i+1] %></li>
+        <% } %>
+      </ul>
     <% } %>
   </div>
   <h1>Experience</h1>
-  <div id="experience-wrapper" class="row">
+  <div id="experience-wrapper" class="container">
     <% _.each(experience, function(exp) { %>
       <h3 class="employer"><%- exp.employer %><span class="emp-img-span">|<img class="employer-img" src="<%- exp.logo %>"></span></h3>
       <div class="employer-header container">
@@ -27,7 +27,7 @@
     <% }); %>
   </div>
   <h1>Education</h1>
-  <div id="education-wrapper">
+  <div id="education-wrapper" class="container">
     <h3><%- education.school %></h3>
     <ul>
       <% _.each(education.notes, function(note) { %>
