@@ -1,8 +1,8 @@
 <div id="projects-wrapper">
   <% _.each(projects, function(project) { %>
     <div class="project row">
-      <div class="twothird">
-        <h3 class="project-name"><%- project.name %></h3>
+      <div class="threefifth">
+        <h2 class="project-name"><%- project.name %></h3>
         <p><%- project.description %></p>
         <p>
           <a href="<%- project.url %>"><%- project.urlDesc %></a>
@@ -14,7 +14,7 @@
           <p>Unfortunately the project is no longer maintained.<br><a href="<%- project.url2 %>">Here's why.</a></p>
         <% } %>
       </div>
-      <div class="third">
+      <div class="twofifth">
         <img class="project-img" src="<%- project.imageUrl %>">
       </div>
     </div>

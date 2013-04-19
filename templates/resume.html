@@ -29,10 +29,10 @@
   <h2>Education</h2>
   <div id="education-wrapper">
     <h3><%- education.school %></h3>
-    <% _.each(education.notes, function(note) { %>
-      <ul>
+    <ul>
+      <% _.each(education.notes, function(note) { %>
         <li class="resume-note"><%- note %></li>
-      </ul> 
-    <% }); %>
+      <% }); %>
+    </ul> 
   </div>
 </div>

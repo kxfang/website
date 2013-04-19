@@ -75,12 +75,13 @@ img.profile {
 
 /* Resume page */
 
-#resume-wrapper h2, #projects-wrapper h3 {
+#resume-wrapper h2, #projects-wrapper h2 {
   border-bottom: 1px solid #ddd;
 }
 
 li.resume-note {
-  list-style: none;
+  list-style: circle;
+  margin-left: 1em;
   line-height: 160%;
 }
 
@@ -104,7 +105,7 @@ li.resume-note {
   text-align: right;
 }
 
-#page li, #page p {
+#page li, #page p, h3.subheader {
   font-size: 115%;
   color: #5c5c5c;
 }
@@ -115,7 +116,7 @@ li.resume-note {
 
 /* Projects */
 .project-img {
-  max-width: 200px;
+  max-width: 230px;
 }
 
 .demo {
