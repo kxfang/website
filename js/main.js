@@ -104,6 +104,7 @@ $(function() {
             
     render: function() {
       var that = this;
+      $('body').css('overflow-y', 'hidden');
       APP.fetchTemplate(this.template, function(t) {
         $.get('data/photos.json', function(data) {
           that.photos = data.photos;
@@ -135,9 +136,9 @@ $(function() {
         
     restorePage: function(complete) {
       if ($('#page').css('max-width') !== '800px') {
-      console.log('animating!');
         $('#page').animate({'max-width': '800px'}, 'slow', function() {
           $('footer').css({'display' : 'block'});
+          $('body').css('overflow-y', 'scroll');
           complete();
         });
         $('#photography-content').animate({'opacity': 0});

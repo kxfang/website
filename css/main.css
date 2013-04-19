@@ -1,5 +1,6 @@
 body {
   background-color: #f9f9f9;
+  overflow-y: scroll;
 }
 
 #page {
@@ -57,7 +58,7 @@ body {
 
 #about-wrapper {
   position: relative;
-  width: 100%
+  width: 100%;
 }
 
 img.profile {
@@ -73,6 +74,11 @@ img.profile {
 }
 
 /* Resume page */
+
+#resume-wrapper h2, #projects-wrapper h3 {
+  border-bottom: 1px solid #ddd;
+}
+
 li.resume-note {
   list-style: none;
   line-height: 160%;
